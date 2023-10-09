@@ -36,7 +36,7 @@ class TaskList(LoginRequiredMixin, ListView):
 class TaskDetail(LoginRequiredMixin, DetailView):
     model = Task
     context_object_name = 'task'
-    template_name = 'base/task.html'
+    template_name = 'main/task.html'
 
 
 class TaskCreate(LoginRequiredMixin, CreateView):
@@ -62,7 +62,7 @@ class TaskDeleteView(LoginRequiredMixin, DeleteView):
 
 
 class Login(LoginView):
-    template_name = 'base/login.html'
+    template_name = 'main/login.html'
     fields = '__all__'
     redirect_authenticated_user = True
 
@@ -71,7 +71,7 @@ class Login(LoginView):
 
 
 class RegisterPage(FormView):
-    template_name = 'base/register.html'
+    template_name = 'main/register.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
     success_url = reverse_lazy('tasks')
