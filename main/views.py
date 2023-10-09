@@ -1,6 +1,4 @@
-from django.db import transaction
 from django.shortcuts import redirect
-from django.views import View
 
 from .models import Task
 from django.views.generic.list import ListView
