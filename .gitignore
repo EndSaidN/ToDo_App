@@ -1,4 +1,4 @@
-../ToDo app/venv
+venv
 .env
 __pycache__
 db.sqlite3

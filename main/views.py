@@ -1,5 +1,4 @@
 from django.db import transaction
-from base.forms import PositionForm
 from django.shortcuts import redirect
 from django.views import View
 
@@ -87,16 +86,3 @@ class RegisterPage(FormView):
         if self.request.user.is_authenticated:
             return redirect('tasks')
         return super(RegisterPage, self).get(*args, **kwargs)
-
-
-class TaskReorder(View):
-    def post(self, request):
-        form = PositionForm(request.POST)
-
-        if form.is_valid():
-            positionList = form.cleaned_data["position"].split(',')
-
-            with transaction.atomic():
-                self.request.user.set_task_order(positionList)
-
-        return redirect(reverse_lazy('tasks'))
