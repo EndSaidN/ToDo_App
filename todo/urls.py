@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from .settings import DEBUG, STATIC_ROOT, STATIC_URL
+from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -8,5 +8,5 @@ urlpatterns = [
     path('', include('main.urls')),
 ]
 
-if DEBUG:
-    urlpatterns += static(STATIC_ROOT, documant_url=STATIC_URL)
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_ROOT, documant_url=settings.STATIC_URL)
